@@ -1,0 +1,4 @@
+binday
+======
+
+CLI for binday
