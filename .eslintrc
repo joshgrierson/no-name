@@ -7,6 +7,10 @@
         "semi": ["warn", "always"],
         "quotes": ["error", "double"],
         "object-curly-spacing": ["warn", "always"],
-        "indent": ["warn", 4]
+        "indent": ["warn", 4],
+        "no-unused-vars": "off",
+        "no-console": "off",
+        "@typescript-eslint/no-unused-vars": ["warn", "always"],
+        "@typescript-eslint/no-empty-interface": ["warn", "always"]
     }
 }

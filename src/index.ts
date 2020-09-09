@@ -1,7 +1,11 @@
-import { Command } from "@oclif/command";
+import { Command, flags } from "@oclif/command";
 
 class Binday extends Command {
     static description = "";
+
+    static flags = {
+        creds: flags.string({ char: "c" }),
+    };
 
     static args = [
         {

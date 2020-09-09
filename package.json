@@ -7,6 +7,13 @@
         "binday": "./bin/run"
     },
     "bugs": "https://github.com/joshgrierson/binday/issues",
+    "scripts": {
+        "posttest": "eslint . --ext .ts --config .eslintrc",
+        "prepack": "rm -rf lib && tsc -b -f && oclif-dev readme",
+        "test": "jest",
+        "debug": "DEBUG=* ./bin/run",
+        "version": "oclif-dev readme && git add README.md"
+    },
     "dependencies": {
         "@oclif/command": "^1",
         "@oclif/config": "^1",
@@ -15,10 +22,13 @@
     },
     "devDependencies": {
         "@oclif/dev-cli": "^1",
+        "@types/jest": "^26.0.13",
         "@types/node": "^10",
         "eslint": "^5.13",
         "eslint-config-oclif": "^3.1",
         "eslint-config-oclif-typescript": "^0.1",
+        "jest": "^26.4.2",
+        "ts-jest": "^26.3.0",
         "ts-node": "^8",
         "typescript": "^3.3"
     },
@@ -36,19 +46,8 @@
     "license": "MIT",
     "main": "lib/index.js",
     "oclif": {
-        "bin": "binday",
-        "commands": "./lib",
-        "hooks": {
-            "init": "./lib/hooks/setup"
-        }
+        "bin": "binday"
     },
     "repository": "joshgrierson/binday",
-    "scripts": {
-        "posttest": "eslint . --ext .ts --config .eslintrc",
-        "prepack": "rm -rf lib && tsc -b && oclif-dev readme",
-        "test": "echo NO TESTS",
-        "debug": "DEBUG=* ./bin/run",
-        "version": "oclif-dev readme && git add README.md"
-    },
     "types": "lib/index.d.ts"
 }
