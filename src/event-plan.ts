@@ -1,37 +1,63 @@
 interface Month {
     name: string;
-    weeks: Week[];
+    weeks: Weeks;
 }
 
-interface Week {
-    startDay: number;
-    weekIndex: number;
+interface Weeks {
+    startWeekDates: number[];
+    days: number;
 }
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+type EventPlanConsole = Console;
 
-function weeksInMonth(monthIndex: number): Week[] {
-    const weeks: Week[] = [];
-    const date = new Date();
-
-    return weeks;
+export interface EventPlanModel {
+    runPlanner: () => void;
 }
 
-function monthsInYear(): Month[] {
-    const months: Month[] = [];
+export default class EventPlan implements EventPlanModel {
+    private static monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    monthNames.forEach((name, index) => {
-        months.push({
-            name,
-            weeks: weeksInMonth(index),
+    constructor(private console: EventPlanConsole) {}
+
+    public runPlanner(): void {
+        const calendar = this.monthsInYear();
+
+        this.console.log(JSON.stringify(calendar, null, 2));
+    }
+
+    private monthsInYear(): Month[] {
+        const months: Month[] = [];
+
+        EventPlan.monthNames.forEach((name, index) => {
+            months.push({
+                name,
+                weeks: this.weeksInMonth(index),
+            });
         });
-    });
 
-    return months;
-}
+        return months;
+    }
 
-export default function (log: (...args: any[]) => void): void {
-    const yearStruct = monthsInYear();
+    private weeksInMonth(monthIndex: number): Weeks {
+        const week: Weeks = {
+            startWeekDates: [],
+            days: 0,
+        };
+        const date = new Date();
 
-    log(yearStruct);
+        date.setMonth(monthIndex + 1);
+        date.setDate(0);
+
+        const lastDate = date.getDate(); // last date of month (i.e 31)
+
+        const numberOfWeeks = Math.ceil(lastDate / 7);
+
+        for (let i = 1; i < numberOfWeeks; i++) {
+            week.startWeekDates.push(7 * i);
+        }
+
+        week.days = lastDate % week.startWeekDates[0]; // find remainder of days (modulus)
+
+        return week;
+    }
 }
