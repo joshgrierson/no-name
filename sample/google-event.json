@@ -1,0 +1,25 @@
+{
+    "end": {
+        "dateTime": "2020-09-16T15:30:00+01:00",
+        "timeZone": "(GMT+01:00) United Kingdom Time"
+    },
+    "start": {
+        "dateTime": "2020-09-16T15:00:00+01:00",
+        "timeZone": "(GMT+01:00) United Kingdom Time"
+    },
+    "description": "<b>Test event</b> description",
+    "location": "Greenford Home",
+    "summary": "Test Event",
+    "reminders": {
+        "overrides": [
+        {
+            "method": "popup",
+            "minutes": 10
+        }
+        ],
+        "useDefault": false
+    },
+    "recurrence": [
+        "RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=WE"
+    ]
+}
