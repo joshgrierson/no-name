@@ -1,0 +1,42 @@
+[
+    {
+        "start": "",
+        "end": "",
+        "containerType": "blue-recycling",
+        "description": "BLUE RECYCLING WHEELIE BIN",
+        "recurrence": {
+            "count": 2,
+            "type": "WEEK"
+        }
+    },
+    {
+        "start": "",
+        "end": "",
+        "containerType": "black-rubbish",
+        "description": "BLACK RUBBISH WHEELIE BIN",
+        "recurrence": {
+            "count": 2,
+            "type": "WEEK"
+        }
+    },
+    {
+        "start": "",
+        "end": "",
+        "containerType": "garden-waste",
+        "description": "GARDEN WHEELIE BIN",
+        "recurrence": {
+            "count": 2,
+            "type": "WEEK"
+        }
+    },
+    {
+        "start": "",
+        "end": "",
+        "containerType": "food-box",
+        "description": "FOOD BOX",
+        "recurrence": {
+            "count": 2,
+            "type": "WEEK"
+        }
+    }
+]
